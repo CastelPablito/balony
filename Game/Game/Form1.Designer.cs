@@ -69,6 +69,7 @@
             this.Controls.Add(this.Wyniki);
             this.Controls.Add(this.Start);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boom Balloon!";
             this.ResumeLayout(false);
 
