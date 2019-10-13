@@ -12,21 +12,22 @@ namespace Game
 {
     public partial class Menu : Form
     {
+
         public Menu()
         {
             InitializeComponent();
-            this.SetVisibleCore(true);
         }
+
+     
 
         private void Start_Click(object sender, EventArgs e)
         {
             // this.WindowState = FormWindowState.Minimized;
             // this.ShowInTaskbar = false; 
-            this.SetVisibleCore(false);
+            //this.SetVisibleCore(false);
+            this.Hide();
             Balony Gra = new Balony();
-            // Gra.WindowState = FormWindowState.Normal;
-            Gra.ShowDialog();
-           
+            
         }
 
         private void Wyniki_Click(object sender, EventArgs e)

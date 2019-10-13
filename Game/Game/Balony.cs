@@ -15,12 +15,13 @@ namespace Game
         public Balony()
         {
             InitializeComponent();
+            this.ShowDialog();
         }
 
         private void Wyjscie_Click(object sender, EventArgs e)
         {
-            this.SetVisibleCore(false);
-            
+            this.Close();
+            Application.Restart();
         }
     }
 }
