@@ -41,6 +41,7 @@
             this.Start.TabIndex = 0;
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // Wyniki
             // 
@@ -50,6 +51,7 @@
             this.Wyniki.TabIndex = 1;
             this.Wyniki.Text = "Wyniki";
             this.Wyniki.UseVisualStyleBackColor = true;
+            this.Wyniki.Click += new System.EventHandler(this.Wyniki_Click);
             // 
             // Wyjscie
             // 
@@ -59,6 +61,7 @@
             this.Wyjscie.TabIndex = 2;
             this.Wyjscie.Text = "Wyjście";
             this.Wyjscie.UseVisualStyleBackColor = true;
+            this.Wyjscie.Click += new System.EventHandler(this.Wyjscie_Click);
             // 
             // Menu
             // 
