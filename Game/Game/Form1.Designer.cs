@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.Start = new System.Windows.Forms.Button();
             this.Wyniki = new System.Windows.Forms.Button();
             this.Wyjscie = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(365, 501);
             this.Controls.Add(this.Wyjscie);
             this.Controls.Add(this.Wyniki);

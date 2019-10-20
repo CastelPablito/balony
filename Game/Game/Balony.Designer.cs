@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Balony));
             this.Wyjscie = new System.Windows.Forms.Button();
+            this.GameSpace = new System.Windows.Forms.Panel();
+            this.Pauza = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Wyjscie
@@ -41,11 +44,33 @@
             this.Wyjscie.UseVisualStyleBackColor = true;
             this.Wyjscie.Click += new System.EventHandler(this.Wyjscie_Click);
             // 
+            // GameSpace
+            // 
+            this.GameSpace.BackColor = System.Drawing.SystemColors.Menu;
+            this.GameSpace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GameSpace.BackgroundImage")));
+            this.GameSpace.Location = new System.Drawing.Point(0, 0);
+            this.GameSpace.Name = "GameSpace";
+            this.GameSpace.Size = new System.Drawing.Size(758, 712);
+            this.GameSpace.TabIndex = 1;
+            this.GameSpace.Paint += new System.Windows.Forms.PaintEventHandler(this.GameSpace_Paint);
+            // 
+            // Pauza
+            // 
+            this.Pauza.Location = new System.Drawing.Point(767, 577);
+            this.Pauza.Name = "Pauza";
+            this.Pauza.Size = new System.Drawing.Size(152, 46);
+            this.Pauza.TabIndex = 2;
+            this.Pauza.Text = "Pauza";
+            this.Pauza.UseVisualStyleBackColor = true;
+            // 
             // Balony
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(936, 710);
+            this.Controls.Add(this.Pauza);
+            this.Controls.Add(this.GameSpace);
             this.Controls.Add(this.Wyjscie);
             this.Name = "Balony";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -57,5 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Button Wyjscie;
+        private System.Windows.Forms.Panel GameSpace;
+        private System.Windows.Forms.Button Pauza;
     }
 }

@@ -16,6 +16,7 @@ namespace Game
         public Menu()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
      
