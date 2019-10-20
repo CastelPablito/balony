@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Balony));
             this.Wyjscie = new System.Windows.Forms.Button();
             this.GameSpace = new System.Windows.Forms.Panel();
             this.Pauza = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Wyjscie
@@ -63,6 +65,12 @@
             this.Pauza.Text = "Pauza";
             this.Pauza.UseVisualStyleBackColor = true;
             // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 300;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Balony
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,5 +92,6 @@
         private System.Windows.Forms.Button Wyjscie;
         private System.Windows.Forms.Panel GameSpace;
         private System.Windows.Forms.Button Pauza;
+        private System.Windows.Forms.Timer timer;
     }
 }
