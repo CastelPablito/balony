@@ -23,8 +23,8 @@ namespace Game
 
         private void Start_Click(object sender, EventArgs e)
         {
-            // this.WindowState = FormWindowState.Minimized;
-            // this.ShowInTaskbar = false; 
+            //this.WindowState = FormWindowState.Minimized;
+            //this.ShowInTaskbar = false; 
             //this.SetVisibleCore(false);
             this.Hide();
             Balony Gra = new Balony();
@@ -33,7 +33,7 @@ namespace Game
 
         private void Wyniki_Click(object sender, EventArgs e)
         {
-
+            Scores scores = new Scores();
         }
 
         private void Wyjscie_Click(object sender, EventArgs e)
