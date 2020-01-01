@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Balon.cs" />
     <Compile Include="Balony.cs">
       <SubType>Form</SubType>
     </Compile>

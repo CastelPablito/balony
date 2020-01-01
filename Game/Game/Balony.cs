@@ -15,17 +15,27 @@ namespace Game
 {
     public partial class Balony : Form
     {
-        int count = 0;
-        //int speed = 5;
+        //int count = 0;
+        int speed = 5;
         int score = 0;
         int il_O2 = 21;
         int il_N2 = 78;
-        int il_C02 = 1; 
-        Balon balonik = new Balon(600);
+        int il_C02 = 1;
+
+        int l_max = 720;
+        int l_min = 5;
+
+        int top_min = 700;
+        int top_max = 1100;
+
+        Random rand = new Random();
+
+    
 
         public Balony()
         {
             InitializeComponent();
+            reset_Game();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ShowDialog();
 
@@ -34,30 +44,56 @@ namespace Game
         private void Wyjscie_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.Restart();
+            //Application.Restart();
+            
         }
 
         private void GameSpace_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = GameSpace.CreateGraphics();
-            g.DrawImage(balonik.balon, new Point(0, balonik.y));
+
+        }
+
+     
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+         
+            punkty.Text = "" + score;
+
+            foreach (Control x in GameSpace.Controls) {
+                if (x is PictureBox) {
+                    x.Top -= speed;
+                    if (x.Top + x.Height < 0) {
+                        x.Top = rand.Next(top_min,top_max);
+                        x.Left = rand.Next(l_min, l_max);
+                    }
+                    x.Invalidate();
+
+                    //if (x.Tag == "Balloon" && x.Top <- 50) {
+                    //    info(x.Name+"_info");
+                    //}
+                }
+            }
+
+            if (score > 100) {
+                speed = 8;
+            }
 
 
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            //   GameSpace.Update();
-            GameSpace.Refresh();
-            // GameSpace.Invalidate();
-            count++;
-            punkty.Text = "" + score;
-            if (count >= 1)
-            {
-                balonik.y--;
-                //  score += 10;
+        private void reset_Game() {
+            foreach (Control x in GameSpace.Controls) {
+                if (x is PictureBox) {
+                    x.Top = rand.Next(top_min, top_max);
+                    x.Left = rand.Next(l_min, l_max);
+                }
             }
 
+            speed = 5;
+            score = 0;
+            timer.Start();
 
         }
 
@@ -104,26 +140,45 @@ namespace Game
 
         // AKCJA
 
+
+
+
         private void tlen_Click(object sender, EventArgs e)
         {
+            var balloon = (PictureBox)sender;
+            balloon.Top = rand.Next(top_min, top_max);
+            balloon.Left = rand.Next(l_min, l_max);
             score += 10;
             il_O2++;
+           // rand.Next();
         }
 
         private void azot_Click(object sender, EventArgs e)
         {
+
+            var balloon = (PictureBox)sender;
+            balloon.Top = rand.Next(top_min, top_max);
+            balloon.Left = rand.Next(l_min, l_max);
             score += 10;
             il_N2++;
         }
 
         private void co2_Click(object sender, EventArgs e)
         {
+
+            var balloon = (PictureBox)sender;
+            balloon.Top = rand.Next(top_min, top_max);
+            balloon.Left = rand.Next(l_min, l_max);
             score += 10;
             il_C02++;
         }
 
         private void hel_Click(object sender, EventArgs e)
         {
+
+            var balloon = (PictureBox)sender;
+            balloon.Top = rand.Next(top_min, top_max);
+            balloon.Left = rand.Next(5, 740);
             score += 10;
         }
    
@@ -161,6 +216,7 @@ namespace Game
         {
             //MessageBox info = new MessageBox();
             // MessageBox dupa = new MessageBox();
+            Scores.save_score(score);
             timer.Stop();
             MessageBox.Show(x, "Koniec gry!");
 
