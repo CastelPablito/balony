@@ -30,7 +30,6 @@ namespace Game
 
         Random rand = new Random();
 
-    
 
         public Balony()
         {
@@ -57,8 +56,7 @@ namespace Game
 
 
         private void timer_Tick(object sender, EventArgs e)
-        {
-         
+        {       
             punkty.Text = "" + score;
 
             foreach (Control x in GameSpace.Controls) {
@@ -68,18 +66,19 @@ namespace Game
                         x.Top = rand.Next(top_min,top_max);
                         x.Left = rand.Next(l_min, l_max);
                     }
-                    x.Invalidate();
-
-                    //if (x.Tag == "Balloon" && x.Top <- 50) {
-                    //    info(x.Name+"_info");
-                    //}
                 }
             }
 
-            if (score > 100) {
+            if (score == 100)
+                speed = 6;
+            else if (score == 200)
                 speed = 8;
-            }
-
+            else if (score == 300)
+                speed = 10;
+            else if (score == 450)
+                speed = 15;
+            else if (score == 750)
+                speed = 20;
 
         }
 
@@ -94,9 +93,13 @@ namespace Game
             speed = 5;
             score = 0;
             timer.Start();
-
         }
 
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            reset_Game();
+        }
 
         // KOMUNIKATY
 
@@ -116,7 +119,7 @@ namespace Game
                                   "⚝ Choć może wydać się to dziwne, ale to jego największa zaleta, gdyż gaz ten jest bardzo niebezpieczny\n" +
                                   "⚝ Siarkowodór działa toksycznie na układ oddechowy oraz nerwowy, zbyt duża jego ilość powoduje zatrzymanie oddechu, a w rezultacie śmierć\n" +
                                   "⚝ Gaz ten występuje naturalnie wydobywając się ze szczelin w okolicach wulkanu, jak i w beztlenowym rozkladzie białek\n" +
-                                  "⚝ Co ciekawe ludzki organizm również potrafi produkować ten gaz, co da się wyczuć kiedy stary najebany wychodzi z toalety\n";
+                                  "⚝ Co ciekawe ludzki organizm również potrafi produkować ten gaz (tak zwane bąki)\n";
 
         string chlor_info = "⚝ Chlor jest silnie trującym żółtozielonym gazem o nieprzyjemnym zapachu.\n" +
                             "⚝ Jego obecność w powietrzu może prowadzić do obrzęku płuc, a nawet do śmierci\n" +
@@ -221,5 +224,6 @@ namespace Game
             MessageBox.Show(x, "Koniec gry!");
 
         }
+
     }
 }

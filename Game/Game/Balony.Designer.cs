@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Wyjscie = new System.Windows.Forms.Button();
-            this.Pauza = new System.Windows.Forms.Button();
+            this.Reset = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.punkty = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -68,19 +68,20 @@
             this.Wyjscie.UseVisualStyleBackColor = true;
             this.Wyjscie.Click += new System.EventHandler(this.Wyjscie_Click);
             // 
-            // Pauza
+            // Reset
             // 
-            this.Pauza.Location = new System.Drawing.Point(767, 577);
-            this.Pauza.Name = "Pauza";
-            this.Pauza.Size = new System.Drawing.Size(152, 46);
-            this.Pauza.TabIndex = 2;
-            this.Pauza.Text = "Pauza";
-            this.Pauza.UseVisualStyleBackColor = true;
+            this.Reset.Location = new System.Drawing.Point(767, 577);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(152, 46);
+            this.Reset.TabIndex = 2;
+            this.Reset.Text = "Reset";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 5;
+            this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // punkty
@@ -258,7 +259,7 @@
             this.ClientSize = new System.Drawing.Size(936, 710);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.punkty);
-            this.Controls.Add(this.Pauza);
+            this.Controls.Add(this.Reset);
             this.Controls.Add(this.GameSpace);
             this.Controls.Add(this.Wyjscie);
             this.Name = "Balony";
@@ -284,7 +285,7 @@
         #endregion
 
         private System.Windows.Forms.Button Wyjscie;
-        private System.Windows.Forms.Button Pauza;
+        private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label punkty;
         private System.Windows.Forms.ProgressBar progressBar1;
