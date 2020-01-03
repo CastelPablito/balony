@@ -28,6 +28,13 @@ namespace Game
         int top_min = 700;
         int top_max = 1100;
 
+
+
+        List<int> zajete_wys = new List<int>();
+        List<int> zajete_szer = new List<int>();
+        int szer = 60;
+        int wys = 100;
+
         Random rand = new Random();
 
 
@@ -37,14 +44,13 @@ namespace Game
             reset_Game();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ShowDialog();
-
         }
 
         private void Wyjscie_Click(object sender, EventArgs e)
         {
             this.Close();
             //Application.Restart();
-            
+
         }
 
         private void GameSpace_Paint(object sender, PaintEventArgs e)
@@ -52,18 +58,18 @@ namespace Game
 
         }
 
-     
-
-
         private void timer_Tick(object sender, EventArgs e)
-        {       
+        {
             punkty.Text = "" + score;
 
-            foreach (Control x in GameSpace.Controls) {
-                if (x is PictureBox) {
+            foreach (Control x in GameSpace.Controls)
+            {
+                if (x is PictureBox)
+                {
                     x.Top -= speed;
-                    if (x.Top + x.Height < 0) {
-                        x.Top = rand.Next(top_min,top_max);
+                    if (x.Top + x.Height < 0)
+                    {
+                        x.Top = rand.Next(top_min, top_max);
                         x.Left = rand.Next(l_min, l_max);
                     }
                 }
@@ -82,11 +88,23 @@ namespace Game
 
         }
 
-        private void reset_Game() {
-            foreach (Control x in GameSpace.Controls) {
-                if (x is PictureBox) {
-                    x.Top = rand.Next(top_min, top_max);
-                    x.Left = rand.Next(l_min, l_max);
+        private void reset_Game()
+        {
+
+            zajete_szer.Clear();
+            zajete_wys.Clear();
+
+            foreach (Control x in GameSpace.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    //   x.Top = rand.Next(top_min, top_max);
+                    //   x.Left = rand.Next(l_min, l_max);
+
+                    // int top = rand.Next(top_min, top_max);
+                    //  int left = rand.Next(l_min, l_max);
+
+                    ballon_spawn((PictureBox)x);
                 }
             }
 
@@ -99,6 +117,64 @@ namespace Game
         private void Reset_Click(object sender, EventArgs e)
         {
             reset_Game();
+        }
+
+        private void ballon_spawn(PictureBox x) // cos jeszcze nie dziala ;xxx
+        {
+            if (!zajete_wys.Any<int>() && !zajete_szer.Any<int>())
+            {
+                x.Top = rand.Next(top_min, top_max);
+                x.Left = rand.Next(l_min, l_max);
+                 zajete_wys.Add(x.Top);
+                zajete_szer.Add(x.Left);
+            }
+            else
+            {
+                int top = rand.Next(top_min, top_max);
+                int left = rand.Next(l_min, l_max);
+                bool dup = false;
+
+                while (dup==false)
+                {
+                    foreach (int sprawdz in zajete_wys)
+                    {
+                        if (top + wys < sprawdz || top - wys > sprawdz)
+                        {
+                            foreach (int sprawdz2 in zajete_szer) // co je z toba / 
+                            {
+                                if (left - szer < sprawdz2 || left + szer > sprawdz2)
+                                {
+                                    x.Top = top;
+                                    x.Left = left;
+                                    zajete_wys.Add(x.Top);
+                                    zajete_szer.Add(x.Left);
+                                    dup = true;
+                                }
+                                else
+                                {
+                                    // ballon_spawn(x);
+                                   // x.Top = top;
+                                  //  x.Left = left;
+                                    //zajete_wys.Add(x.Top);
+                                    //zajete_szer.Add(x.Left);
+
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            // ballon_spawn(x);
+                          //  x.Top = top;
+                          //  x.Left = left;
+                            //zajete_wys.Add(x.Top);
+                            //zajete_szer.Add(x.Left);
+                        }
+                    }
+                }
+
+
+            }
         }
 
         // KOMUNIKATY
@@ -125,23 +201,24 @@ namespace Game
                             "⚝ Jego obecność w powietrzu może prowadzić do obrzęku płuc, a nawet do śmierci\n" +
                             "⚝ Podczas I Wojny Światowej był stosowany jako broń chemiczna\n" +
                             "⚝ Mimo jego okropnych właściwości jako gazu, chlor jest bardzo przydatnym pierwiastkiem\n" +
-                            "⚝ Używa się go w celu uzdatniania wody\n"+
-                            "⚝ Jest składnikiem soli kuchennej (NaCl)\n"+
+                            "⚝ Używa się go w celu uzdatniania wody\n" +
+                            "⚝ Jest składnikiem soli kuchennej (NaCl)\n" +
                             "⚝ Oraz pomaga nam w trawieniu, gdyż kwas chlorowodorowy (HCl) znajduje się w naszym żołądku!\n";
 
         string cyjanowodor_info = "⚝ Cyjanowodór to silnie toksyczny gaz wchłaniający się przez płuca oraz skórę.\n" +
-                                  "⚝ Zapachem przypomina gorzkie migdały.\n "+
+                                  "⚝ Zapachem przypomina gorzkie migdały.\n " +
                                   "⚝ Bardzo niewielka ilość może spowodować zgon.\n " +
                                   "⚝ W czasie II Wojny Światowej był stosowany do trucia więźniów w niemieckich obozach zagłady\n ";
-                                 
-        string metan_info = "⚝ Metan jest bezbawrnym i bezwonnym silnie wybuchowym gazem\n"+
-                             "⚝ Jego obecność często świadczy o obecności prostego życia, gdyż jest on wydalany przez proste bakterie\n"+
-                             "Górnicy schodząc do kopalni muszą uważać na stężenie tego gazu\n"+
-                             "⚝ Jego obecność tam może prowadzić do wybuchu oraz zawalenia się kopalni\n"+
-                             "⚝ Jest jednym ze składników gazu ziemnego\n"+
+
+        string metan_info = "⚝ Metan jest bezbawrnym i bezwonnym silnie wybuchowym gazem\n" +
+                             "⚝ Jego obecność często świadczy o obecności prostego życia, gdyż jest on wydalany przez proste bakterie\n" +
+                             "Górnicy schodząc do kopalni muszą uważać na stężenie tego gazu\n" +
+                             "⚝ Jego obecność tam może prowadzić do wybuchu oraz zawalenia się kopalni\n" +
+                             "⚝ Jest jednym ze składników gazu ziemnego\n" +
                              "⚝ Jest on gazem cieplarnianym, a więc zbyt duża jego obecność w atmosferze może przyczyniać się do niszczenia wartswy ozonowej\n";
 
         // AKCJA
+
 
 
 
@@ -153,12 +230,10 @@ namespace Game
             balloon.Left = rand.Next(l_min, l_max);
             score += 10;
             il_O2++;
-           // rand.Next();
         }
 
         private void azot_Click(object sender, EventArgs e)
         {
-
             var balloon = (PictureBox)sender;
             balloon.Top = rand.Next(top_min, top_max);
             balloon.Left = rand.Next(l_min, l_max);
@@ -168,7 +243,6 @@ namespace Game
 
         private void co2_Click(object sender, EventArgs e)
         {
-
             var balloon = (PictureBox)sender;
             balloon.Top = rand.Next(top_min, top_max);
             balloon.Left = rand.Next(l_min, l_max);
@@ -178,13 +252,12 @@ namespace Game
 
         private void hel_Click(object sender, EventArgs e)
         {
-
             var balloon = (PictureBox)sender;
             balloon.Top = rand.Next(top_min, top_max);
             balloon.Left = rand.Next(5, 740);
             score += 10;
         }
-   
+
         private void czad_Click(object sender, EventArgs e)
         {
             info(czad_info);

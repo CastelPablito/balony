@@ -16,16 +16,10 @@ namespace Game
     {
         public Scores()
         {
-           
             InitializeComponent();
             show_score();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ShowDialog();
-            
-           
-            
-           
-            // Refresh();
         }
 
         private void scores_Load(object sender, EventArgs e)
@@ -59,32 +53,38 @@ namespace Game
         }
 
         public void show_score()
-        {    
+        {
             try
             {
                 FileStream pliczek = new FileStream("wyniki.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+                // FileInfo pliczek_info = new FileInfo("wyniki.txt");
                 StreamWriter pliczek_write = new StreamWriter(pliczek);
                 StreamReader pliczek_read = new StreamReader(pliczek);
-                
+
+
                 int i = 0;
-                while (!pliczek_read.EndOfStream) {
+                while (!pliczek_read.EndOfStream)
+                {
                     string line = pliczek_read.ReadLine();
                     i++;
                 }
-               
+
                 pliczek.Position = 0;
                 int[] ranking = new int[i];
 
-                int j = 0; 
+                int j = 0;
                 while (!pliczek_read.EndOfStream)
                 {
                     ranking[j] = Int32.Parse(pliczek_read.ReadLine());
                     j++;
                 }
 
-                for (int a = 0; a < i-1; a++) {
-                    for (int b = 0; b < i - 1; b++) {
-                        if (ranking[b]<ranking[b+1]) {
+                for (int a = 0; a < i - 1; a++)
+                {
+                    for (int b = 0; b < i - 1; b++)
+                    {
+                        if (ranking[b] < ranking[b + 1])
+                        {
                             int buf = ranking[b + 1];
                             ranking[b + 1] = ranking[b];
                             ranking[b] = buf;
@@ -92,19 +92,29 @@ namespace Game
                     }
                 }
 
-                int l_nr = 10;
-                int k = 9;
-                foreach (Control x in this.Controls) {
+                // WYSWIETLANIE
+
+                int l_nr = 1;
+
+
+                int k = 0;
+
+                foreach (Control x in this.Controls)
+                {
                     if (x is Label)
                     {
-                        x.Text = l_nr + ".     " + ranking[k];//pliczek_read.ReadLine();
-                        l_nr--;
-                        k--;
+                        if (k < i)
+                        {
+                            x.Text = l_nr + ".     " + ranking[k];//pliczek_read.ReadLine();
+                            l_nr++;
+                            k++;
+                        }
+
                     }
                 }
 
                 pliczek_read.Close();
-                
+
             }
             catch (Exception e)
             {
