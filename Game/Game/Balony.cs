@@ -25,15 +25,15 @@ namespace Game
         int l_max = 720;
         int l_min = 5;
 
-        int top_min = 700;
-        int top_max = 1100;
+        int top_min = 720;
+        int top_max = 1800;
 
 
 
         List<int> zajete_wys = new List<int>();
         List<int> zajete_szer = new List<int>();
-        int szer = 60;
-        int wys = 100;
+        int szer = 200;
+        int wys = 200;
 
         Random rand = new Random();
 
@@ -64,13 +64,18 @@ namespace Game
 
             foreach (Control x in GameSpace.Controls)
             {
+                int i = 0;
                 if (x is PictureBox)
                 {
                     x.Top -= speed;
                     if (x.Top + x.Height < 0)
                     {
-                        x.Top = rand.Next(top_min, top_max);
-                        x.Left = rand.Next(l_min, l_max);
+                        i++;                      
+                        ballon_spawn((PictureBox)x);
+                        if (i % 11 == 0) {
+                            zajete_szer.Clear();
+                            zajete_wys.Clear();
+                        }
                     }
                 }
             }
@@ -98,12 +103,6 @@ namespace Game
             {
                 if (x is PictureBox)
                 {
-                    //   x.Top = rand.Next(top_min, top_max);
-                    //   x.Left = rand.Next(l_min, l_max);
-
-                    // int top = rand.Next(top_min, top_max);
-                    //  int left = rand.Next(l_min, l_max);
-
                     ballon_spawn((PictureBox)x);
                 }
             }
@@ -121,58 +120,35 @@ namespace Game
 
         private void ballon_spawn(PictureBox x) // cos jeszcze nie dziala ;xxx
         {
-            if (!zajete_wys.Any<int>() && !zajete_szer.Any<int>())
+            if (!zajete_wys.Any<int>() && !zajete_szer.Any<int>()) // to dzialczy ok
             {
                 x.Top = rand.Next(top_min, top_max);
                 x.Left = rand.Next(l_min, l_max);
-                 zajete_wys.Add(x.Top);
+                zajete_wys.Add(x.Top);
                 zajete_szer.Add(x.Left);
             }
-            else
+            else // chyba dziala elegancko
             {
                 int top = rand.Next(top_min, top_max);
                 int left = rand.Next(l_min, l_max);
-                bool dup = false;
+                int i = 0;
 
-                while (dup==false)
+                foreach (int sprawdz in zajete_wys)
                 {
-                    foreach (int sprawdz in zajete_wys)
+                    if (top + wys > sprawdz && top - wys < sprawdz && left + szer > zajete_szer[i] && left - szer < zajete_szer[i])
                     {
-                        if (top + wys < sprawdz || top - wys > sprawdz)
-                        {
-                            foreach (int sprawdz2 in zajete_szer) // co je z toba / 
-                            {
-                                if (left - szer < sprawdz2 || left + szer > sprawdz2)
-                                {
-                                    x.Top = top;
-                                    x.Left = left;
-                                    zajete_wys.Add(x.Top);
-                                    zajete_szer.Add(x.Left);
-                                    dup = true;
-                                }
-                                else
-                                {
-                                    // ballon_spawn(x);
-                                   // x.Top = top;
-                                  //  x.Left = left;
-                                    //zajete_wys.Add(x.Top);
-                                    //zajete_szer.Add(x.Left);
-
-                                }
-                            }
-                        }
-
-                        else
-                        {
-                            // ballon_spawn(x);
-                          //  x.Top = top;
-                          //  x.Left = left;
-                            //zajete_wys.Add(x.Top);
-                            //zajete_szer.Add(x.Left);
-                        }
+                        top = rand.Next(top_min, top_max);
+                        left = rand.Next(l_min, l_max);
                     }
+                    else
+                    {
+                        x.Top = top;
+                        x.Left = left;
+                    }
+                    i++;
                 }
-
+                zajete_szer.Add(x.Left);
+                zajete_wys.Add(x.Top);
 
             }
         }
