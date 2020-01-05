@@ -198,17 +198,27 @@
         }
 
         #endregion
-
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button return_button;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label2;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label3;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label4;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label5;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label6;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label7;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label8;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label9;
+        /// <summary>Label wyświetlający wynik</summary>  
         private System.Windows.Forms.Label label10;
+        /// <summary>Przycisk powrotu</summary>  
+        private System.Windows.Forms.Button return_button;
     }
 }

@@ -13,8 +13,25 @@ using System.Threading.Tasks;
 
 namespace Game
 {
+    /// <summary>Klasa pomagająca optymalizować wyświetlanie elementów</summary>  
     public class GamePanel : System.Windows.Forms.Panel
     {
+        /// <summary>Ustawia parametry panela</summary>  
+        /// <example>
+        ///  public GamePanel()
+        ///{
+        /// <code>
+        ///  DoubleBuffered = true;
+        ///  SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+        ///
+        ///     this.SetStyle(
+        ///        ControlStyles.AllPaintingInWmPaint |
+        ///        ControlStyles.UserPaint |
+        ///        ControlStyles.DoubleBuffer,
+        ///        true);
+        ///}
+        /// </code>
+        /// </example>
         public GamePanel()
         {
             DoubleBuffered = true;
@@ -22,9 +39,9 @@ namespace Game
 
             this.SetStyle(
                ControlStyles.AllPaintingInWmPaint |
-                  ControlStyles.UserPaint |
-                    ControlStyles.DoubleBuffer,
-    true);
+               ControlStyles.UserPaint |
+               ControlStyles.DoubleBuffer,
+               true);
 
         }
 

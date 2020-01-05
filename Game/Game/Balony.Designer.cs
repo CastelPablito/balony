@@ -309,24 +309,42 @@
         }
 
         #endregion
-
+        /// <summary>Przycisk Wyjście</summary>  
         private System.Windows.Forms.Button Wyjscie;
+        /// <summary>Przycisk Reset</summary>  
         private System.Windows.Forms.Button Reset;
+        /// <summary>Zegar gry</summary>  
         private System.Windows.Forms.Timer timer;
+        /// <summary>Label wyświetlający ilość punktów</summary>  
         private System.Windows.Forms.Label punkty;
-        private System.Windows.Forms.PictureBox azot;
-        private GamePanel GameSpace;
-        private System.Windows.Forms.PictureBox chlor;
-        private System.Windows.Forms.PictureBox cyjanowodor;
-        private System.Windows.Forms.PictureBox co2;
-        private System.Windows.Forms.PictureBox hel;
-        private System.Windows.Forms.PictureBox metan;
-        private System.Windows.Forms.PictureBox siarkowodor;
-        private System.Windows.Forms.PictureBox tlen;
-        private System.Windows.Forms.PictureBox czad;
-        private System.Windows.Forms.PictureBox wodor;
+        /// <summary>Label wyświetlający procentową zawartość tlenu</summary>  
         private System.Windows.Forms.Label O_label;
+        /// <summary>Label wyświetlający procentową zawartość azotu</summary>  
         private System.Windows.Forms.Label N_label;
+        /// <summary>Label wyświetlający procentową zawartość dwutlenku węgla</summary>  
         private System.Windows.Forms.Label CO2_label;
+        /// <summary>PictureBox azot</summary>  
+        private System.Windows.Forms.PictureBox azot;
+        /// <summary>Panel gry</summary>  
+        private GamePanel GameSpace;
+        /// <summary>PictureBox chlor</summary>  
+        private System.Windows.Forms.PictureBox chlor;
+        /// <summary>PictureBox cyjanowodór</summary>  
+        private System.Windows.Forms.PictureBox cyjanowodor;
+        /// <summary>PictureBox dwutlenek węgla</summary>  
+        private System.Windows.Forms.PictureBox co2;
+        /// <summary>PictureBox hel</summary>  
+        private System.Windows.Forms.PictureBox hel;
+        /// <summary>PictureBox metan</summary>  
+        private System.Windows.Forms.PictureBox metan;
+        /// <summary>PictureBox siarkowodór</summary>  
+        private System.Windows.Forms.PictureBox siarkowodor;
+        /// <summary>PictureBox tlen</summary>  
+        private System.Windows.Forms.PictureBox tlen;
+        /// <summary>PictureBox czad</summary>  
+        private System.Windows.Forms.PictureBox czad;
+        /// <summary>PictureBox wodor</summary>  
+        private System.Windows.Forms.PictureBox wodor;
+       
     }
 }

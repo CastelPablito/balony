@@ -3,7 +3,7 @@
     partial class Menu
     {
         /// <summary>
-        /// Wymagana zmienna projektanta.
+        /// Komponenty
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -80,9 +80,11 @@
         }
 
         #endregion
-
+        /// <summary>Przycisk Start</summary>  
         private System.Windows.Forms.Button Start;
+        /// <summary>Przycisk Wyniki</summary>  
         private System.Windows.Forms.Button Wyniki;
+        /// <summary>Przycisk Wyjście</summary>  
         private System.Windows.Forms.Button Wyjscie;
     }
 }

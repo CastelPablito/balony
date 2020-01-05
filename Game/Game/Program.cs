@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Game
-{
+
+{   /// <summary>Powoduje inicjacje klasy Menu</summary>  
     public static class Program
     {
+        /// <summary>Powoduje inicjacje klasy Menu</summary>  
         [STAThread]
-        /// <summary>Powoduje incjacje klasy Menu</summary>  
+        
         public static void Main()
         {
             Application.EnableVisualStyles();

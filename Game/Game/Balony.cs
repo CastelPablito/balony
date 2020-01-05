@@ -58,12 +58,16 @@ namespace Game
         }
 
         /// <summary> funkcja umożliwiająca powrót do menu </summary>  
+        /// <param name="sender"> przycisk wyjście </param>
+        /// <param name="e">zdarzenie .</param>
         private void Wyjscie_Click(object sender, EventArgs e)
         {
             this.Close();     // powrot do menu
         }
 
-        /// <summary> funkcja odpowiedzialna za przebieg gry </summary>  
+        /// <summary> funkcja odpowiedzialna za przebieg gry </summary> 
+        /// <param name="sender"> zegar </param>
+        /// <param name="e">zdarzenie .</param>
         private void timer_Tick(object sender, EventArgs e)
         {
             punkty.Text = "" + score;
@@ -143,12 +147,15 @@ namespace Game
         }
 
         /// <summary> powrot do ustawien poczatkowych gry </summary>  
+         /// <param name="sender"> przycisk reset </param>
+        /// <param name="e">zdarzenie .</param>
         private void Reset_Click(object sender, EventArgs e)
         {
             reset_Game();
         }
 
         /// <summary>funkcja odpowiedzialna za pojawianie się balonów</summary>  
+        /// <param name="x">Picture box balona</param>
         private void ballon_spawn(PictureBox x)
         {
             if (!zajete_wys.Any<int>() && !zajete_szer.Any<int>()) // dla pierwszego elementu
@@ -232,6 +239,8 @@ namespace Game
         // AKCJA
 
         /// <summary>niszczy obiekt, ustawia jego nowa pozycje, przyznaje punkty, inkrementuje il_O2</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void tlen_Click(object sender, EventArgs e)
         {
             var balloon = (PictureBox)sender;
@@ -241,6 +250,8 @@ namespace Game
         }
 
         /// <summary>niszczy obiekt, ustawia jego nowa pozycje, przyznaje punkty, inkrementuje il_N2</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void azot_Click(object sender, EventArgs e)
         {
             var balloon = (PictureBox)sender;
@@ -250,6 +261,8 @@ namespace Game
         }
 
         /// <summary>niszczy obiekt, ustawia jego nowa pozycje, przyznaje punkty, inkrementuje il_CO2</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void co2_Click(object sender, EventArgs e)
         {
             var balloon = (PictureBox)sender;
@@ -259,6 +272,8 @@ namespace Game
         }
 
         /// <summary>niszczy obiekt, ustawia jego nowa pozycje, przyznaje punkty</summary> 
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void hel_Click(object sender, EventArgs e)
         {
             var balloon = (PictureBox)sender;
@@ -268,36 +283,49 @@ namespace Game
 
 
         /// <summary>powoduje zakończenie gry</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void czad_Click(object sender, EventArgs e)
         {
             info(czad_info);
         }
         /// <summary>powoduje zakończenie gry</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param> 
         private void wodor_Click(object sender, EventArgs e)
         {
             info(wodor_info);
         }
         /// <summary>powoduje zakończenie gry</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param> 
         private void siarkowodor_Click(object sender, EventArgs e)
         {
             info(siarkowodor_info);
         }
-        /// <summary>powoduje zakończenie gry</summary>  
+        /// <summary>powoduje zakończenie gry</summary> 
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void chlor_Click(object sender, EventArgs e)
         {
             info(chlor_info);
         }
-        /// <summary>powoduje zakończenie gry</summary>  
+        /// <summary>powoduje zakończenie gry</summary> 
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void cyjanowodor_Click(object sender, EventArgs e)
         {
             info(cyjanowodor_info);
         }
         /// <summary>powoduje zakończenie gry</summary>  
+        /// <param name="sender"> balon </param>
+        /// <param name="e">zdarzenie .</param>
         private void metan_Click(object sender, EventArgs e)
         {
             info(metan_info);
         }
         /// <summary>powoduje zakończenie gry, wyswietla informacje</summary>  
+        /// <param name="x">informacja na temat gazu</param>
         void info(string x)
         {
             Scores.save_score(score); //zapisywanie wyniku
