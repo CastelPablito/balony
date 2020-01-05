@@ -9,6 +9,7 @@ namespace Game
     public static class Program
     {
         [STAThread]
+        /// <summary>Powoduje incjacje klasy Menu</summary>  
         public static void Main()
         {
             Application.EnableVisualStyles();

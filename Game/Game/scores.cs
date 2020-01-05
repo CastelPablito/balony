@@ -12,8 +12,10 @@ using System.Windows.Forms;
 
 namespace Game
 {
+    /// <summary>Klasa wyświetlająca okno z tabelą wyników</summary>  
     public partial class Scores : Form
     {
+        /// <summary>konstruktor klasy</summary>  
         public Scores()
         {
             InitializeComponent();
@@ -22,13 +24,13 @@ namespace Game
             this.ShowDialog();
         }
 
-
+        /// <summary>powoduje powrót do menu</summary>  
         private void return_button_Click(object sender, EventArgs e)
         {
             this.Hide();        // powrot do menu
         }
 
-
+        /// <summary>zapisane wyniku do pliku tekstowego</summary>  
         public static void save_score(int x)
         {
             try
@@ -49,7 +51,7 @@ namespace Game
             }
         }
 
-
+        /// <summary>odczyt z pliku tekstowego, posortowanie i wyswietlenie zawartosci</summary>  
         public void show_score()
         {
             try
