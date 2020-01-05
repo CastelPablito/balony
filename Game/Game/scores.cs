@@ -22,15 +22,12 @@ namespace Game
             this.ShowDialog();
         }
 
-        private void scores_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void return_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide();        // powrot do menu
         }
+
 
         public static void save_score(int x)
         {
@@ -52,18 +49,17 @@ namespace Game
             }
         }
 
+
         public void show_score()
         {
             try
             {
                 FileStream pliczek = new FileStream("wyniki.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
-                // FileInfo pliczek_info = new FileInfo("wyniki.txt");
                 StreamWriter pliczek_write = new StreamWriter(pliczek);
                 StreamReader pliczek_read = new StreamReader(pliczek);
 
-
                 int i = 0;
-                while (!pliczek_read.EndOfStream)
+                while (!pliczek_read.EndOfStream)       // liczenie ilosci linii
                 {
                     string line = pliczek_read.ReadLine();
                     i++;
@@ -75,11 +71,11 @@ namespace Game
                 int j = 0;
                 while (!pliczek_read.EndOfStream)
                 {
-                    ranking[j] = Int32.Parse(pliczek_read.ReadLine());
+                    ranking[j] = Int32.Parse(pliczek_read.ReadLine());  // spisanie wszystkich dostepnych wartości do tablicy
                     j++;
                 }
 
-                for (int a = 0; a < i - 1; a++)
+                for (int a = 0; a < i - 1; a++) // posortowanie malejąco
                 {
                     for (int b = 0; b < i - 1; b++)
                     {
@@ -95,17 +91,15 @@ namespace Game
                 // WYSWIETLANIE
 
                 int l_nr = 1;
-
-
                 int k = 0;
 
-                foreach (Control x in this.Controls)
+                foreach (Control x in this.Controls)        // wyswietlanie wynikow
                 {
                     if (x is Label)
                     {
                         if (k < i)
                         {
-                            x.Text = l_nr + ".     " + ranking[k];//pliczek_read.ReadLine();
+                            x.Text = l_nr + ".     " + ranking[k];
                             l_nr++;
                             k++;
                         }

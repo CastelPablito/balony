@@ -23,23 +23,17 @@ namespace Game
 
         private void Start_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Minimized;
-            //this.ShowInTaskbar = false; 
-            //this.SetVisibleCore(false);
-           // this.Hide();
-            Balony Gra = new Balony();
-            
+            Balony Gra = new Balony();           // rozpoczecie rozgrywki
         }
 
         private void Wyniki_Click(object sender, EventArgs e)
         {
-            Scores scores = new Scores();
-           // Scores.show_score();
+            Scores scores = new Scores();          // przejscie do tabeli wynikow
         }
 
         private void Wyjscie_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit();                 // zakonczenie programu
         }
 
 

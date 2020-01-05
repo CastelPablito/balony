@@ -192,7 +192,6 @@
             this.Name = "Scores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boom Balloon!";
-            this.Load += new System.EventHandler(this.scores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

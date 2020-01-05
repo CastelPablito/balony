@@ -33,7 +33,6 @@
             this.Reset = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.punkty = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.GameSpace = new Game.GamePanel();
             this.chlor = new System.Windows.Forms.PictureBox();
             this.cyjanowodor = new System.Windows.Forms.PictureBox();
@@ -45,6 +44,9 @@
             this.czad = new System.Windows.Forms.PictureBox();
             this.wodor = new System.Windows.Forms.PictureBox();
             this.azot = new System.Windows.Forms.PictureBox();
+            this.O_label = new System.Windows.Forms.Label();
+            this.N_label = new System.Windows.Forms.Label();
+            this.CO2_label = new System.Windows.Forms.Label();
             this.GameSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chlor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cyjanowodor)).BeginInit();
@@ -94,13 +96,6 @@
             this.punkty.TabIndex = 3;
             this.punkty.Text = "PUNKTY";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(773, 81);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(146, 24);
-            this.progressBar1.TabIndex = 4;
-            // 
             // GameSpace
             // 
             this.GameSpace.BackColor = System.Drawing.SystemColors.Menu;
@@ -119,7 +114,6 @@
             this.GameSpace.Name = "GameSpace";
             this.GameSpace.Size = new System.Drawing.Size(758, 712);
             this.GameSpace.TabIndex = 1;
-            this.GameSpace.Paint += new System.Windows.Forms.PaintEventHandler(this.GameSpace_Paint);
             // 
             // chlor
             // 
@@ -251,13 +245,45 @@
             this.azot.Tag = "azot";
             this.azot.Click += new System.EventHandler(this.azot_Click);
             // 
+            // O_label
+            // 
+            this.O_label.AutoSize = true;
+            this.O_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.O_label.Location = new System.Drawing.Point(774, 113);
+            this.O_label.Name = "O_label";
+            this.O_label.Size = new System.Drawing.Size(79, 29);
+            this.O_label.TabIndex = 4;
+            this.O_label.Text = "label1";
+            // 
+            // N_label
+            // 
+            this.N_label.AutoSize = true;
+            this.N_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.N_label.Location = new System.Drawing.Point(774, 155);
+            this.N_label.Name = "N_label";
+            this.N_label.Size = new System.Drawing.Size(79, 29);
+            this.N_label.TabIndex = 5;
+            this.N_label.Text = "label1";
+            // 
+            // CO2_label
+            // 
+            this.CO2_label.AutoSize = true;
+            this.CO2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CO2_label.Location = new System.Drawing.Point(774, 198);
+            this.CO2_label.Name = "CO2_label";
+            this.CO2_label.Size = new System.Drawing.Size(79, 29);
+            this.CO2_label.TabIndex = 6;
+            this.CO2_label.Text = "label1";
+            // 
             // Balony
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(936, 710);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.CO2_label);
+            this.Controls.Add(this.N_label);
+            this.Controls.Add(this.O_label);
             this.Controls.Add(this.punkty);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.GameSpace);
@@ -288,7 +314,6 @@
         private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label punkty;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.PictureBox azot;
         private GamePanel GameSpace;
         private System.Windows.Forms.PictureBox chlor;
@@ -300,5 +325,8 @@
         private System.Windows.Forms.PictureBox tlen;
         private System.Windows.Forms.PictureBox czad;
         private System.Windows.Forms.PictureBox wodor;
+        private System.Windows.Forms.Label O_label;
+        private System.Windows.Forms.Label N_label;
+        private System.Windows.Forms.Label CO2_label;
     }
 }
