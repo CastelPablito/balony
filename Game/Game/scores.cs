@@ -29,7 +29,7 @@ namespace Game
         /// <param name="e">zdarzenie .</param>
         private void return_button_Click(object sender, EventArgs e)
         {
-            this.Hide();        // powrot do menu
+            this.Dispose();// powrot do menu
         }
 
         /// <summary>zapisane wyniku do pliku tekstowego</summary>  
