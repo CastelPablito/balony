@@ -147,7 +147,7 @@ namespace Game
         }
 
         /// <summary> powrot do ustawien poczatkowych gry </summary>  
-         /// <param name="sender"> przycisk reset </param>
+        /// <param name="sender"> przycisk reset </param>
         /// <param name="e">zdarzenie .</param>
         private void Reset_Click(object sender, EventArgs e)
         {
@@ -156,8 +156,8 @@ namespace Game
 
         /// <summary>funkcja odpowiedzialna za pojawianie się balonów</summary>  
         /// <param name="x">Picture box balona</param>
-        private void ballon_spawn(PictureBox x)
-        {
+        private void ballon_spawn(PictureBox x)     // funckja odpowiedzialna za pojawianie sie balonow
+        {                                           
             if (!zajete_wys.Any<int>() && !zajete_szer.Any<int>()) // dla pierwszego elementu
             {
                 x.Top = rand.Next(top_min, top_max);
@@ -177,7 +177,7 @@ namespace Game
                     if (top < sprawdz + wys && left < zajete_szer[i] + szer && top > sprawdz - wys && left > zajete_szer[i] - szer)
                     {
                         top = rand.Next(top_min, top_max); // jesli [top,left] znajduje sie w zabronionym obszarze
-                        left = rand.Next(l_min, l_max);    // to generuj nowy punkt [top,left]           
+                        left = rand.Next(l_min, l_max);    // to generuj nowy punkt [top,left]                                
                     }
                     else { }
 
